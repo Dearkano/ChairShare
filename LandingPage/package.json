@@ -7,8 +7,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "dva": "^2.4.1",
     "react": "^16.2.0",
+    "react-bootstrap": "^1.5.1",
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
