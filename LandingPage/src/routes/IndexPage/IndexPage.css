@@ -2,20 +2,18 @@
   font-family: Georgia, sans-serif;
   height: 100vh;
   text-align: center;
-  background: url(../assets/bg.jpg) no-repeat;
-  background-size: auto;
+  /* background: url(../assets/bg.jpg) no-repeat;
+  background-size: cover; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: normal;
   letter-spacing: -1px;
-}
-
-.welcome {
-  height: 328px;
-  background: url(../assets/yay.jpg) no-repeat center 0;
-  background-size: 388px 328px;
 }
 
 .list {
@@ -27,4 +25,12 @@
 
 .list code {
   background: #f7f7f7;
+}
+
+.row {
+  display: flex;
+}
+
+.logo {
+  height: 8rem;
 }

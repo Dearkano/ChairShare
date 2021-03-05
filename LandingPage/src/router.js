@@ -1,14 +1,20 @@
-import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
+import React from "react";
+import { Router, Route, Switch } from "dva/router";
+import Header from "./components/Header";
+import IndexPage from "./routes/IndexPage";
+import SurveyPage from "./routes/SurveyPage";
 
 function RouterConfig({ history }) {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={IndexPage} />
-      </Switch>
-    </Router>
+    <>
+      <Header />
+      <Router history={history}>
+        <Switch>
+          <Route path="/" exact component={IndexPage} />
+          <Route path="/survey" component={SurveyPage} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
