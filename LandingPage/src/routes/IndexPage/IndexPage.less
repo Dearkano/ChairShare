@@ -1,0 +1,115 @@
+.normal {
+  font-family: Georgia, sans-serif;
+  height: 90vh;
+  text-align: center;
+  /* background: url(../assets/bg.jpg) no-repeat;
+  background-size: cover; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif !important;
+  max-width: 100vw;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: -1px;
+}
+
+.list {
+  font-size: 1.2em;
+  margin-top: 1.8em;
+  list-style: none;
+  line-height: 1.5em;
+}
+
+.list code {
+  background: #f7f7f7;
+}
+
+.row {
+  display: flex;
+}
+
+.logo {
+  height: 12rem;
+}
+
+/* .main {
+  margin-left: -30%;
+  margin-top: -15%;
+} */
+
+.main {
+  position: absolute;
+  left: 5%;
+  top: 15%;
+  z-index: 999;
+  :global {
+    .ant-btn-primary {
+      background-color: #63B8E2;
+      border-color: #63B8E2;
+      width: 30rem;
+      height: 2.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.image1 {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  width: 40rem;
+  z-index: 1;
+}
+
+.container1{
+  margin-left: 2rem;
+  :global {
+    .ant-btn {
+      color:#63B8E2;
+      border-color: #63B8E2;
+      width: 15rem;
+      height: 2.5rem;
+      border-radius: 0.3rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.subtitle {
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.area {
+  background-color:#63B8E2;
+  color: #fff;
+  height: 9rem;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  border-radius: 1rem;
+  width: 40rem;
+  padding-right: 6rem;
+}
+
+.btn {
+  display: flex;
+  padding-left: 2rem;
+  :global {
+    .ant-btn {
+      color:#63B8E2;
+      border-color: #63B8E2;
+      width: 15rem;
+      height: 2.5rem;
+      border-radius: 0.3rem;
+      font-weight: bold;
+    }
+  }
+}

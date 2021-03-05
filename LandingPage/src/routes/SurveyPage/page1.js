@@ -11,8 +11,9 @@ import {
   TreeSelect,
   Switch,
 } from "antd";
+import styles from "./index.less";
 
-const FormSizeDemo = () => {
+const FormSizeDemo = ({ next }) => {
   const [componentSize, setComponentSize] = useState("default");
 
   const onFormLayoutChange = ({ size }) => {
@@ -95,6 +96,14 @@ const FormSizeDemo = () => {
           <Button>Button</Button>
         </Form.Item>
       </Form>
+      <div
+        className={styles.row}
+        style={{ paddingRight: "5rem", justifyContent: "flex-end" }}
+      >
+        <Button type="primary" size="large" onClick={next}>
+          {"    Next    "}
+        </Button>
+      </div>
     </>
   );
 };
