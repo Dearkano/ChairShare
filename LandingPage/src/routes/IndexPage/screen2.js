@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+import { connect } from "dva";
+import { routerRedux } from "dva/router";
 import { Button } from "antd";
 import styles from "./IndexPage.less";
 import Image1 from "../../assets/h-h_Black.svg";
-export default function () {
+export default connect()(function ({ dispatch }) {
+  const onPress = () => {
+    dispatch(routerRedux.push("/survey"));
+    //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
+  };
   return (
     <div
       className={styles.main}
@@ -50,7 +56,7 @@ export default function () {
             className={styles.btn}
             style={{ marginTop: "1rem", alignSelf: "flex-end" }}
           >
-            <Button>Get matched right now!</Button>
+            <Button onClick={onPress}>Get matched right now!</Button>
           </div>
           <div className={styles.column} style={{ justifySelf: "flex-end" }}>
             <div className={styles.text4}>
@@ -80,4 +86,4 @@ export default function () {
       </div>
     </div>
   );
-}
+});

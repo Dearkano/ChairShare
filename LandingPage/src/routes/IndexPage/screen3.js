@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "dva";
+import { routerRedux } from "dva/router";
 import { Button } from "antd";
 import styles from "./IndexPage.less";
 import logo1 from "../../assets/logo1.svg";
@@ -8,7 +10,7 @@ import logo4 from "../../assets/logo4.svg";
 import logo5 from "../../assets/logo5.svg";
 import logo6 from "../../assets/logo6.svg";
 
-export default function () {
+export default connect()(function ({ dispatch }) {
   const texts = [
     "",
     "Companies that would like to rent an office space or excess desks with flexibility and competitive price",
@@ -18,8 +20,8 @@ export default function () {
   const roles = ["", "Sublessor", "Partners", "Subtenent"];
   const [cur, setCur] = useState(0);
   const onPress = () => {
-    // dispatch(routerRedux.push("/survey"));
-    document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
+    dispatch(routerRedux.push("/survey"));
+    //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
   };
   return (
     <div className={styles.main} style={{ height: "100vh" }}>
@@ -125,4 +127,4 @@ export default function () {
       </div> */}
     </div>
   );
-}
+});

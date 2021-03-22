@@ -1,111 +1,40 @@
 import React, { useState } from "react";
-import {
-  Form,
-  Input,
-  Button,
-  Radio,
-  Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
-} from "antd";
+import { Button } from "antd";
 import styles from "./index.less";
 
-const FormSizeDemo = ({ next }) => {
-  const [componentSize, setComponentSize] = useState("default");
-
-  const onFormLayoutChange = ({ size }) => {
-    setComponentSize(size);
-  };
-
+export default ({ next }) => {
   return (
-    <>
-      <Form
-        labelCol={{
-          span: 4,
-        }}
-        wrapperCol={{
-          span: 14,
-        }}
-        layout="horizontal"
-        initialValues={{
-          size: componentSize,
-        }}
-        onValuesChange={onFormLayoutChange}
-        size={componentSize}
-      >
-        <Form.Item label="Form Size" name="size">
-          <Radio.Group>
-            <Radio.Button value="small">Small</Radio.Button>
-            <Radio.Button value="default">Default</Radio.Button>
-            <Radio.Button value="large">Large</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item label="Input">
-          <Input />
-        </Form.Item>
-        <Form.Item label="Select">
-          <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item label="TreeSelect">
-          <TreeSelect
-            treeData={[
-              {
-                title: "Light",
-                value: "light",
-                children: [
-                  {
-                    title: "Bamboo",
-                    value: "bamboo",
-                  },
-                ],
-              },
-            ]}
-          />
-        </Form.Item>
-        <Form.Item label="Cascader">
-          <Cascader
-            options={[
-              {
-                value: "zhejiang",
-                label: "Zhejiang",
-                children: [
-                  {
-                    value: "hangzhou",
-                    label: "Hangzhou",
-                  },
-                ],
-              },
-            ]}
-          />
-        </Form.Item>
-        <Form.Item label="DatePicker">
-          <DatePicker />
-        </Form.Item>
-        <Form.Item label="InputNumber">
-          <InputNumber />
-        </Form.Item>
-        <Form.Item label="Switch">
-          <Switch />
-        </Form.Item>
-        <Form.Item label="Button">
-          <Button>Button</Button>
-        </Form.Item>
-      </Form>
-      <div
-        className={styles.row}
-        style={{ paddingRight: "5rem", justifyContent: "flex-end" }}
-      >
-        <Button type="primary" size="large" onClick={next}>
-          {"    Next    "}
+    <div className={styles.main}>
+      <div className={styles.text1}>Chairshare Office Sharer Sign up</div>
+      <div className={styles.text2} style={{ paddingRight: "5rem" }}>
+        We want the focus of office sharing to be the culture and character of
+        the companies. In order for meaningful relationships to form within
+        their industry, companies will get to learn more about their products
+        and services before they decide if they want to be matched and
+        potentially collaborate as partners.
+      </div>
+
+      <div className={styles.text3}>You are the...?</div>
+      <div className={styles.btns}>
+        <Button size="large" onClick={() => next()}>
+          Subleaser
+        </Button>
+        <Button size="large" onClick={() => next()}>
+          Subtenent
         </Button>
       </div>
-    </>
+      {/* <div
+        className={styles.row}
+        style={{
+          paddingRight: "5rem",
+          justifyContent: "flex-end",
+          marginTop: "15rem",
+        }}
+      >
+        <Button size="large" onClick={next}>
+          {"Next >"}
+        </Button>
+      </div> */}
+    </div>
   );
 };
-
-export default FormSizeDemo;

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "dva";
+import { routerRedux } from "dva/router";
 import { Button } from "antd";
 import styles from "./IndexPage.less";
 import icon1 from "../../assets/icon1.svg";
@@ -7,7 +9,11 @@ import icon3 from "../../assets/icon3.svg";
 import icon4 from "../../assets/icon4.svg";
 import icon5 from "../../assets/icon5.svg";
 
-export default function () {
+export default connect()(function ({ dispatch }) {
+  const onPress = () => {
+    dispatch(routerRedux.push("/survey"));
+    //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
+  };
   return (
     <div
       className={styles.main}
@@ -75,7 +81,7 @@ export default function () {
               paddingLeft: "0rem",
             }}
           >
-            <Button>Sign up right now!</Button>
+            <Button onClick={onPress}>Sign up right now!</Button>
           </div>
         </div>
 
@@ -104,4 +110,4 @@ export default function () {
       </div>
     </div>
   );
-}
+});
