@@ -13,10 +13,12 @@ function Header({ dispatch }) {
         className={styles.logo}
         src={logo}
       />
-      <div className={styles.row}>
-        <div className={styles.text}>Service</div>
-        <div className={styles.text}>Resource</div>
-        <div className={styles.text}>About</div>
+      <div className={styles.row} style={{ marginRight: "6vw" }}>
+        <div className={styles.text}>Sign up</div>
+        <div className={styles.text}>Partners</div>
+        <div className={styles.text} style={{ paddingRight: 0 }}>
+          Contact us
+        </div>
       </div>
     </div>
   );
