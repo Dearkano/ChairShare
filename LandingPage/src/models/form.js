@@ -35,7 +35,7 @@ export default {
       const data = yield select((state) => state);
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
-      const res = yield fetch("http://www.3.114.141.73:7001/signup", {
+      const res = yield fetch("http://3.114.141.73:7001/signup", {
         method: "post",
         headers: headers,
         body: JSON.stringify(data.form),
