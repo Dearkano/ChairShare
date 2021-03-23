@@ -22,7 +22,7 @@ export default connect()(({ dispatch }) => {
       return;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
-    const res = await fetch("http://localhost:7001/partner", {
+    const res = await fetch("http://3.114.141.73/partner", {
       method: "post",
       headers: headers,
       body: JSON.stringify(values),
