@@ -22,7 +22,10 @@ export default connect()(function ({ dispatch }) {
         justifyContent: "flex-start",
       }}
     >
-      <div className={styles.row}>
+      <div
+        className={styles.row}
+        style={{ width: "100%", justifyContent: "center" }}
+      >
         <div className={styles.block}>
           <img className={styles.icon} src={icon1} />
           <div className={styles.iconText}>
@@ -54,7 +57,7 @@ export default connect()(function ({ dispatch }) {
         </div>
       </div>
 
-      <div className={styles.row}>
+      <div className={styles.row} style={{ width: "100%" }}>
         <div
           className={styles.column}
           style={{
@@ -62,14 +65,16 @@ export default connect()(function ({ dispatch }) {
             alignItems: "flex-start",
             marginRight: "-40rem",
             marginTop: "12rem",
+            marginLeft: "2rem",
             zIndex: 999,
+            width: "100%",
           }}
         >
-          <div className={styles.text7}>
+          <div className={styles.text7} style={{ marginRight: "-10rem" }}>
             The Profit-share agreements takes a portion of the rental revenue as
             commission
           </div>
-          <div className={styles.text7}>
+          <div className={styles.text7} style={{ marginRight: "-10rem" }}>
             to help you get matched and manage the logistics of sharing an
             office.
           </div>
