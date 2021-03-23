@@ -13,14 +13,25 @@ import {
   Switch,
 } from "antd";
 import styles from "./index.less";
+import { Header } from "antd/lib/layout/layout";
 const validateMessages = {
   required: "${name} is required!",
 };
-const Page = ({ dispatch, next, back }) => {
-  const checkAndNext = (v) => {
-    if (!v.name || !v.email) return;
-    next();
+const Page = ({ dispatch, back, form, loading }) => {
+  const checkAndNext = async (v) => {
+    if (!v.name || !v.email) {
+      if (!form.name || !form.email) return;
+    }
+    dispatch({
+      type: "form/update",
+      payload: v,
+    });
+    console.log(form);
+    dispatch({
+      type: "form/submit",
+    });
   };
+  console.log(form);
   return (
     <Form validateMessages={validateMessages} onFinish={checkAndNext}>
       <div className={styles.main}>
@@ -44,7 +55,11 @@ const Page = ({ dispatch, next, back }) => {
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Name</div>
-            <Form.Item name={"name"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"name"}
+              rules={[{ required: true }]}
+              initialValue={form.name}
+            >
               <Input
                 style={{ width: "20rem" }}
                 size="large"
@@ -54,8 +69,8 @@ const Page = ({ dispatch, next, back }) => {
             </Form.Item>
           </div>
           <div className={styles.inputBlock}>
-            <div className={styles.text5_required}>Position</div>
-            <Form.Item name={"position"}>
+            <div className={styles.text5}>Position</div>
+            <Form.Item name={"position"} initialValue={form.position}>
               <Input
                 style={{ width: "20rem" }}
                 size="large"
@@ -66,7 +81,11 @@ const Page = ({ dispatch, next, back }) => {
           </div>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Email</div>
-            <Form.Item name={"email"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"email"}
+              rules={[{ required: true }]}
+              initialValue={form.email}
+            >
               <Input
                 style={{ width: "20rem" }}
                 type="email"
@@ -77,8 +96,8 @@ const Page = ({ dispatch, next, back }) => {
             </Form.Item>
           </div>
           <div className={styles.inputBlock}>
-            <div className={styles.text5_required}>Phone No</div>
-            <Form.Item name={"phone"}>
+            <div className={styles.text5}>Phone No</div>
+            <Form.Item name={"phone"} initialValue={form.phone}>
               <Input
                 style={{ width: "20rem" }}
                 type="tel"
@@ -101,7 +120,7 @@ const Page = ({ dispatch, next, back }) => {
           <Button size="large" onClick={back} style={{ marginRight: "2rem" }}>
             {"< Back"}
           </Button>
-          <Button size="large" htmlType="submit">
+          <Button size="large" htmlType="submit" loading={loading}>
             {"Submit"}
           </Button>
         </div>
@@ -110,4 +129,7 @@ const Page = ({ dispatch, next, back }) => {
   );
 };
 
-export default connect(({ survey }) => ({ survey }))(Page);
+export default connect(({ form, loading }) => ({
+  form,
+  loading: loading.global,
+}))(Page);

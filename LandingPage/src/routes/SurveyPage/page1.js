@@ -1,8 +1,17 @@
 import React, { useState } from "react";
+import { connect } from "dva";
 import { Button } from "antd";
 import styles from "./index.less";
 
-export default ({ next }) => {
+export default connect(({ form }) => ({ form }))(({ next, dispatch, form }) => {
+  const checkAndNext = (v) => {
+    dispatch({
+      type: "form/update",
+      payload: { type: v },
+    });
+    next();
+  };
+  console.log(form);
   return (
     <div className={styles.main}>
       <div className={styles.text1}>Chairshare Office Sharer Sign up</div>
@@ -16,25 +25,13 @@ export default ({ next }) => {
 
       <div className={styles.text3}>You are the...?</div>
       <div className={styles.btns}>
-        <Button size="large" onClick={() => next()}>
+        <Button size="large" onClick={() => checkAndNext("subleaser")}>
           Subleaser
         </Button>
-        <Button size="large" onClick={() => next()}>
+        <Button size="large" onClick={() => checkAndNext("subtenent")}>
           Subtenent
         </Button>
       </div>
-      {/* <div
-        className={styles.row}
-        style={{
-          paddingRight: "5rem",
-          justifyContent: "flex-end",
-          marginTop: "15rem",
-        }}
-      >
-        <Button size="large" onClick={next}>
-          {"Next >"}
-        </Button>
-      </div> */}
     </div>
   );
-};
+});

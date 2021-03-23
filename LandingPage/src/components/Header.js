@@ -20,8 +20,17 @@ function Header({ dispatch }) {
         >
           Sign up
         </div>
-        <div className={styles.text}>Partners</div>
-        <div className={styles.text} style={{ paddingRight: 0 }}>
+        <div
+          className={styles.text}
+          onClick={() => dispatch(routerRedux.push("/partners"))}
+        >
+          Partners
+        </div>
+        <div
+          className={styles.text}
+          style={{ paddingRight: 0 }}
+          onClick={() => dispatch(routerRedux.push("/contact"))}
+        >
           Contact us
         </div>
       </div>

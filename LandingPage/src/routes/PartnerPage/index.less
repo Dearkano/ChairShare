@@ -1,0 +1,87 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.text1 {
+    font-size: 2rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    padding-left: 15%;
+}
+
+.text2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.text3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    text-align: right;
+    width: 100%;
+    padding-right: 2rem;
+    height: 4rem;
+  }
+
+  .text3::after {
+    content: '*';
+    color: white;
+  }
+
+  .text4 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    text-align: right;
+    width: 100%;
+    padding-right: 2rem;
+    height: 4rem;
+  }
+  
+  .area {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    background-color: #63b1e2;
+    padding: 2rem;
+    margin-right: 4rem;
+    height: 40rem;
+    :global{
+        .ant-btn {
+            color:#ffffff;
+            border-color: #ffffff;
+            background-color: #63b1e2;
+            width: 10rem;
+            height: 2.5rem;
+            border-radius: 0.3rem;
+            font-weight: 300;
+            font-size: 1.2rem;
+          }
+          .ant-form-item-has-error{
+              margin-bottom: 24px;
+          }
+    }
+  }

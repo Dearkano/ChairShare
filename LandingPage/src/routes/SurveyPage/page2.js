@@ -160,15 +160,29 @@ const validateMessages = {
   required: "${name} is required!",
 };
 
-export default connect()(function ({ back, next }) {
+export default connect(({ form }) => ({ form }))(function ({
+  back,
+  next,
+  form,
+  dispatch,
+}) {
   const onIndustrySelect = (data) => {
     console.log("onSelect", data);
   };
   const checkAndNext = (v) => {
     console.log(v);
-    if (!v.companyName || !v.industry || !v.employeeNumber) return;
+    console.log("---");
+    console.log(form);
+    if (!v.companyName || !v.industry || !v.employeeNumber) {
+      if (!form.companyName || !form.industry || !form.employeeNumber) return;
+    }
+    dispatch({
+      type: "form/update",
+      payload: v,
+    });
     next();
   };
+  console.log(form);
 
   return (
     <Form validateMessages={validateMessages} onFinish={checkAndNext}>
@@ -178,7 +192,11 @@ export default connect()(function ({ back, next }) {
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Company name</div>
-            <Form.Item name={"companyName"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"companyName"}
+              rules={[{ required: true }]}
+              initialValue={form.companyName}
+            >
               <Input
                 style={{ width: "25rem" }}
                 size="large"
@@ -189,7 +207,7 @@ export default connect()(function ({ back, next }) {
           </div>
           <div className={styles.inputBlock}>
             <div className={styles.text5}>Company Website</div>
-            <Form.Item name={"website"}>
+            <Form.Item name={"website"} initialValue={form.website}>
               <Input
                 style={{ width: "25rem" }}
                 size="large"
@@ -202,7 +220,11 @@ export default connect()(function ({ back, next }) {
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Industry</div>
-            <Form.Item name={"industry"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"industry"}
+              rules={[{ required: true }]}
+              initialValue={form.industry}
+            >
               <AutoComplete
                 size="large"
                 options={options}
@@ -219,7 +241,11 @@ export default connect()(function ({ back, next }) {
           </div>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Number of Employees</div>
-            <Form.Item name={"employeeNumber"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"employeeNumber"}
+              rules={[{ required: true }]}
+              initialValue={form.employeeNumber}
+            >
               <Select
                 placeholder="select your number of employees"
                 size="large"
@@ -238,7 +264,7 @@ export default connect()(function ({ back, next }) {
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5}>Sub-industry</div>
-            <Form.Item name={"subIndustry"}>
+            <Form.Item name={"subIndustry"} initialValue={form.subIndustry}>
               <Input
                 size="large"
                 style={{ width: "25rem" }}
