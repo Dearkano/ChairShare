@@ -25,7 +25,7 @@ export default {
       const data = yield select((state) => state);
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
-      const res = yield fetch("http://www.3.114.141.73/contact", {
+      const res = yield fetch("http://www.3.114.141.73:7001/contact", {
         method: "post",
         headers: headers,
         body: JSON.stringify(data.contact),
