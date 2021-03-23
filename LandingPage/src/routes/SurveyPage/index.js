@@ -9,7 +9,7 @@ import Page3 from "./page3";
 import Page4 from "./page4";
 
 function Page({ dispatch }) {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(4);
   return (
     <div className={styles.container}>
       (

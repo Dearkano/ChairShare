@@ -19,10 +19,6 @@ export default connect()(function ({ dispatch }) {
   ];
   const roles = ["", "Sublessor", "Partners", "Subtenent"];
   const [cur, setCur] = useState(0);
-  const onPress = () => {
-    dispatch(routerRedux.push("/survey"));
-    //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
-  };
   return (
     <div className={styles.main} style={{ height: "100vh" }}>
       <div className={styles.row}>

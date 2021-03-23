@@ -153,79 +153,98 @@ const optionsText = [
   "Wireless",
   "Writing / Editing",
 ];
-
 const options = optionsText.map((text) => {
   return { value: text };
 });
+const validateMessages = {
+  required: "${name} is required!",
+};
+
 export default connect()(function ({ back, next }) {
   const onIndustrySelect = (data) => {
     console.log("onSelect", data);
   };
+  const checkAndNext = (v) => {
+    console.log(v);
+    if (!v.companyName || !v.industry || !v.employeeNumber) return;
+    next();
+  };
 
   return (
-    <Form>
+    <Form validateMessages={validateMessages} onFinish={checkAndNext}>
       <div className={styles.main}>
         <div className={styles.text1}>Company Information</div>
         <div className={styles.text4}>Required</div>
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Company name</div>
-            <Input
-              style={{ width: "25rem" }}
-              size="large"
-              allowClear
-              placeholder="your company name here"
-            />
+            <Form.Item name={"companyName"} rules={[{ required: true }]}>
+              <Input
+                style={{ width: "25rem" }}
+                size="large"
+                allowClear
+                placeholder="your company name here"
+              />
+            </Form.Item>
           </div>
           <div className={styles.inputBlock}>
             <div className={styles.text5}>Company Website</div>
-            <Input
-              style={{ width: "25rem" }}
-              size="large"
-              allowClear
-              placeholder="your company website here"
-            />
+            <Form.Item name={"website"}>
+              <Input
+                style={{ width: "25rem" }}
+                size="large"
+                allowClear
+                placeholder="your company website here"
+              />
+            </Form.Item>
           </div>
         </div>
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Industry</div>
-            <AutoComplete
-              size="large"
-              options={options}
-              style={{ width: "25rem" }}
-              onSelect={onIndustrySelect}
-              placeholder="input your industry here"
-              filterOption={(inputValue, option) =>
-                option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
-                -1
-              }
-            />
+            <Form.Item name={"industry"} rules={[{ required: true }]}>
+              <AutoComplete
+                size="large"
+                options={options}
+                style={{ width: "25rem" }}
+                onSelect={onIndustrySelect}
+                placeholder="input your industry here"
+                filterOption={(inputValue, option) =>
+                  option.value
+                    .toUpperCase()
+                    .indexOf(inputValue.toUpperCase()) !== -1
+                }
+              />
+            </Form.Item>
           </div>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>Number of Employees</div>
-            <Select
-              placeholder="select your number of employees"
-              size="large"
-              style={{ width: "25rem" }}
-            >
-              <Option value="1-10">1 - 10</Option>
-              <Option value="11-50">11 - 50</Option>
-              <Option value="51-200">51 - 200</Option>
-              <Option value="201-1000">201 - 1000</Option>
-              <Option value="1001-5000">1001 - 5000</Option>
-              <Option value="5001+">5001+</Option>
-            </Select>
+            <Form.Item name={"employeeNumber"} rules={[{ required: true }]}>
+              <Select
+                placeholder="select your number of employees"
+                size="large"
+                style={{ width: "25rem" }}
+              >
+                <Option value="1-10">1 - 10</Option>
+                <Option value="11-50">11 - 50</Option>
+                <Option value="51-200">51 - 200</Option>
+                <Option value="201-1000">201 - 1000</Option>
+                <Option value="1001-5000">1001 - 5000</Option>
+                <Option value="5001+">5001+</Option>
+              </Select>
+            </Form.Item>
           </div>
         </div>
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5}>Sub-industry</div>
-            <Input
-              size="large"
-              style={{ width: "25rem" }}
-              placeholder="your sub industry here"
-            />
+            <Form.Item name={"subIndustry"}>
+              <Input
+                size="large"
+                style={{ width: "25rem" }}
+                placeholder="your sub industry here"
+              />
+            </Form.Item>
           </div>
         </div>
         <div
@@ -234,12 +253,13 @@ export default connect()(function ({ back, next }) {
             paddingRight: "5rem",
             justifyContent: "flex-end",
             marginTop: "5rem",
+            marginBottom: "5rem",
           }}
         >
           <Button size="large" onClick={back} style={{ marginRight: "2rem" }}>
             {"< Back"}
           </Button>
-          <Button size="large" onClick={next}>
+          <Button size="large" htmlType="submit">
             {"Next >"}
           </Button>
         </div>

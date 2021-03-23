@@ -11,7 +11,7 @@ import icon5 from "../../assets/icon5.svg";
 
 export default connect()(function ({ dispatch }) {
   const onPress = () => {
-    dispatch(routerRedux.push("/survey"));
+    dispatch(routerRedux.push("/signup"));
     //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
   };
   return (

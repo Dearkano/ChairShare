@@ -6,11 +6,12 @@ const validateMessages = {
   required: "${name} is required!",
 };
 export default connect()(function ({ back, next }) {
-  const checkAndNext = () => {
+  const checkAndNext = (v) => {
+    if (!v.city || !v.state || !v.country) return;
     next();
   };
   return (
-    <Form validateMessages={validateMessages}>
+    <Form validateMessages={validateMessages} onFinish={checkAndNext}>
       <div className={styles.main}>
         <div className={styles.text1}>Office Information</div>
         <div className={styles.text4}>Required</div>
@@ -20,7 +21,7 @@ export default connect()(function ({ back, next }) {
         >
           Location of office
         </div>
-        <div className={styles.row}>
+        <div className={styles.column} style={{ alignItems: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5_required}>City</div>
             <Form.Item name={"city"} rules={[{ required: true }]}>
@@ -106,16 +107,17 @@ export default connect()(function ({ back, next }) {
             paddingRight: "5rem",
             justifyContent: "flex-end",
             marginTop: "5rem",
+            marginBottom: "5rem",
           }}
         >
           <Button size="large" onClick={back} style={{ marginRight: "2rem" }}>
             {"< Back"}
           </Button>
-          <Button size="large" onClick={checkAndNext} htmlType="submit">
+          <Button size="large" htmlType="submit">
             {"Next >"}
           </Button>
         </div>
-      </div>{" "}
+      </div>
     </Form>
   );
 });

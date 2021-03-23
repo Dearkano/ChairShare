@@ -14,7 +14,12 @@ function Header({ dispatch }) {
         src={logo}
       />
       <div className={styles.row} style={{ marginRight: "6vw" }}>
-        <div className={styles.text}>Sign up</div>
+        <div
+          className={styles.text}
+          onClick={() => dispatch(routerRedux.push("/signup"))}
+        >
+          Sign up
+        </div>
         <div className={styles.text}>Partners</div>
         <div className={styles.text} style={{ paddingRight: 0 }}>
           Contact us

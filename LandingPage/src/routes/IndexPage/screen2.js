@@ -6,7 +6,7 @@ import styles from "./IndexPage.less";
 import Image1 from "../../assets/h-h_Black.svg";
 export default connect()(function ({ dispatch }) {
   const onPress = () => {
-    dispatch(routerRedux.push("/survey"));
+    dispatch(routerRedux.push("/signup"));
     //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
   };
   return (
