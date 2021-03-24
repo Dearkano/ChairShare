@@ -12,7 +12,6 @@ function Page({ dispatch }) {
   const [page, setPage] = useState(1);
   return (
     <div className={styles.container}>
-      (
       <div className={styles.timeline}>
         <Timeline>
           <Timeline.Item

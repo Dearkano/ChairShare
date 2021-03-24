@@ -107,7 +107,7 @@ export default connect()(function ({ dispatch }) {
             Management Agreement
           </div>
           <div className={styles.text6}>
-            *We are currently launching our BETA version and will offer the for
+            *We are currently launching our BETA version and will offer the free
             service{" "}
           </div>
           <div className={styles.text6}>for a limited period of time.</div>

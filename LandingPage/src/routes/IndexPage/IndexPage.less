@@ -7,6 +7,21 @@
   justify-content: center;
   align-items: center;
   font-family: "Poppins", sans-serif !important;
+  :global {
+    .ant-btn {
+      color:#63B8E2;
+      border-color: #63B8E2;
+      width: 15rem;
+      height: 2.5rem;
+      border-radius: 0.3rem;
+      font-weight: 300;
+    }
+    .ant-btn:hover {
+      color: #fff;
+      background-color: #63B8E2;
+      border-color: #fff;
+    }
+  }
 }
 
 .title {
@@ -47,16 +62,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  :global {
-    .ant-btn-primary {
-      background-color: #63B8E2;
-      border-color: #63B8E2;
-      width: 30rem;
-      height: 2.5rem;
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-  }
 }
 
 .image1 {
@@ -74,16 +79,6 @@
   width: 100%;
   margin-left: 2rem;
   margin-top: 2rem;
-  :global {
-    .ant-btn {
-      color:#63B8E2;
-      border-color: #63B8E2;
-      width: 15rem;
-      height: 2.5rem;
-      border-radius: 0.3rem;
-      font-weight: 300;
-    }
-  }
 }
 
 .subtitle {
@@ -109,17 +104,6 @@
 .btn {
   display: flex;
   padding-left: 2.5rem;
-  :global {
-    .ant-btn {
-      color:#63B8E2;
-      border-color: #63B8E2;
-      width: 20rem;
-      height: 3.5rem;
-      border-radius: 0.3rem;
-      font-weight: 300;
-      font-size: 1.2rem;
-    }
-  }
 }
 
 

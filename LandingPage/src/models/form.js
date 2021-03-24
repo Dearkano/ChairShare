@@ -1,4 +1,5 @@
 import { routerRedux } from "dva/router";
+import config from "../config";
 export default {
   namespace: "form",
 
@@ -12,9 +13,9 @@ export default {
     city: "",
     state: "",
     country: "",
-    price: 0,
+    price: [0, 0],
     level: 0,
-    renter: 10,
+    renter: "",
     name: "",
     position: "",
     email: "",
@@ -35,7 +36,9 @@ export default {
       const data = yield select((state) => state);
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
-      const res = yield fetch("http://3.114.141.73:7001/signup", {
+      console.log("----");
+      console.log(config);
+      const res = yield fetch(`${config.host}/signup`, {
         method: "post",
         headers: headers,
         body: JSON.stringify(data.form),

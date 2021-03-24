@@ -1,7 +1,6 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
   :global {
     .ant-btn {
       color:#63B8E2;
@@ -12,12 +11,17 @@
       font-weight: 300;
       font-size: 1.2rem;
     }
+    .ant-btn:hover {
+      color: #fff;
+      background-color: #63B8E2;
+      border-color: #fff;
+    }
   }
 }
 
 .timeline {
   width: 20rem;
-  height: 28rem;
+  height: 32rem;
   margin: 2rem;
   padding: 1rem;
   background-color: #63b1e2;
@@ -36,7 +40,6 @@
 .survey {
   width: 60rem;
   padding: 2rem;
-  padding-top: 4rem;
   height: 70vh;
 }
 
@@ -121,11 +124,11 @@
 }
 
 .text5 {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 300;
 }
 .text5_required {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 300;
 }
 .text5_required::after {
@@ -156,11 +159,16 @@
       font-weight: 300;
       font-size: 1.5rem;
     }
+    .ant-btn:hover {
+      color: #fff;
+      background-color: #63B8E2;
+      border-color: #fff;
+    }
   }
 }
 
 .inputBlock  {
-  height: 6rem;
+  height: 4rem;
   width: 25rem;
   margin-right: 2rem;
   margin-top: 2rem;

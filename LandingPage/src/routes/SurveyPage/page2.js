@@ -199,7 +199,6 @@ export default connect(({ form }) => ({ form }))(function ({
             >
               <Input
                 style={{ width: "25rem" }}
-                size="large"
                 allowClear
                 placeholder="your company name here"
               />
@@ -210,7 +209,6 @@ export default connect(({ form }) => ({ form }))(function ({
             <Form.Item name={"website"} initialValue={form.website}>
               <Input
                 style={{ width: "25rem" }}
-                size="large"
                 allowClear
                 placeholder="your company website here"
               />
@@ -226,7 +224,6 @@ export default connect(({ form }) => ({ form }))(function ({
               initialValue={form.industry}
             >
               <AutoComplete
-                size="large"
                 options={options}
                 style={{ width: "25rem" }}
                 onSelect={onIndustrySelect}
@@ -248,7 +245,6 @@ export default connect(({ form }) => ({ form }))(function ({
             >
               <Select
                 placeholder="select your number of employees"
-                size="large"
                 style={{ width: "25rem" }}
               >
                 <Option value="1-10">1 - 10</Option>
@@ -266,7 +262,6 @@ export default connect(({ form }) => ({ form }))(function ({
             <div className={styles.text5}>Sub-industry</div>
             <Form.Item name={"subIndustry"} initialValue={form.subIndustry}>
               <Input
-                size="large"
                 style={{ width: "25rem" }}
                 placeholder="your sub industry here"
               />

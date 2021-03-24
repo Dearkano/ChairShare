@@ -12,8 +12,8 @@ export default connect(({ form }) => ({ form }))(function ({
   form,
 }) {
   const checkAndNext = (v) => {
-    if (!v.city || !v.state || !v.country) {
-      if (!form.country || !form.state || !form.city) return;
+    if (!v.city || !v.state || !v.country || !v.renter) {
+      if (!form.country || !form.state || !form.city || !form.renter) return;
     }
     dispatch({
       type: "form/update",
@@ -33,38 +33,50 @@ export default connect(({ form }) => ({ form }))(function ({
         >
           Location of office
         </div>
-        <div className={styles.column} style={{ alignItems: "flex-start" }}>
-          <div className={styles.inputBlock}>
+        <div
+          className={styles.row}
+          style={{ justifyContent: "flex-start", marginTop: "-1rem" }}
+        >
+          <div className={styles.inputBlock} style={{ width: "15rem" }}>
             <div className={styles.text5_required}>City</div>
-            <Form.Item name={"city"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"city"}
+              rules={[{ required: true }]}
+              initialValue={form.city}
+            >
               <Input
                 initialValue={form.city}
-                style={{ width: "20rem" }}
-                size="large"
+                style={{ width: "13rem" }}
                 allowClear
                 placeholder="City"
               />
             </Form.Item>
           </div>
-          <div className={styles.inputBlock}>
+          <div className={styles.inputBlock} style={{ width: "15rem" }}>
             <div className={styles.text5_required}>State</div>
-            <Form.Item name={"state"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"state"}
+              rules={[{ required: true }]}
+              initialValue={form.state}
+            >
               <Input
                 initialValue={form.state}
-                style={{ width: "20rem" }}
-                size="large"
+                style={{ width: "13rem" }}
                 allowClear
                 placeholder="State"
               />
             </Form.Item>
           </div>
-          <div className={styles.inputBlock}>
+          <div className={styles.inputBlock} style={{ width: "15rem" }}>
             <div className={styles.text5_required}>Country</div>
-            <Form.Item name={"country"} rules={[{ required: true }]}>
+            <Form.Item
+              name={"country"}
+              rules={[{ required: true }]}
+              initialValue={form.country}
+            >
               <Input
                 initialValue={form.country}
-                style={{ width: "20rem" }}
-                size="large"
+                style={{ width: "13rem" }}
                 allowClear
                 placeholder="Country"
               />
@@ -75,9 +87,10 @@ export default connect(({ form }) => ({ form }))(function ({
         <div className={styles.row} style={{ justifyContent: "flex-start" }}>
           <div className={styles.inputBlock}>
             <div className={styles.text5}>Estimated price/month (USD)</div>
-            <Form.Item name="price">
+            <Form.Item name="price" initialValue={form.price}>
               <Slider
                 initialValue={form.price}
+                range={true}
                 tipFormatter={(v) => `$${v * 100}`}
                 marks={{
                   0: "$0",
@@ -90,9 +103,12 @@ export default connect(({ form }) => ({ form }))(function ({
               />
             </Form.Item>
           </div>
-          <div className={styles.inputBlock}>
+          <div
+            className={styles.inputBlock}
+            style={{ width: "20rem", marginLeft: "5rem" }}
+          >
             <div className={styles.text5}>Level of privacy required</div>
-            <Form.Item name="level">
+            <Form.Item name="level" initialValue={form.level}>
               <Slider
                 initialValue={form.level}
                 tipFormatter={(v) => Math.round(v / 20)}
@@ -105,16 +121,20 @@ export default connect(({ form }) => ({ form }))(function ({
           </div>
         </div>
 
-        <div className={styles.row} style={{ justifyContent: "flex-start" }}>
+        <div
+          className={styles.row}
+          style={{ justifyContent: "flex-start", marginTop: "1rem" }}
+        >
           <div className={styles.inputBlock}>
-            <div className={styles.text5}>Expected number of renters</div>
-            <Form.Item name="renter" initialValue={form.renter}>
-              <InputNumber
-                style={{ width: "10rem" }}
-                size="large"
-                initialValue={10}
-                min={1}
-              />
+            <div className={styles.text5_required}>
+              Expected number of renters
+            </div>
+            <Form.Item
+              name="renter"
+              initialValue={form.renter}
+              rules={[{ required: true }]}
+            >
+              <InputNumber style={{ width: "10rem" }} min={1} />
             </Form.Item>
           </div>
         </div>

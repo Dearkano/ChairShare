@@ -28,8 +28,6 @@ export default connect()(function ({ dispatch }) {
           src={logo1}
         />
         <img
-          onMouseEnter={() => setCur(1)}
-          onMouseLeave={() => setCur(0)}
           className={styles.logo}
           style={{ opacity: cur === 0 || cur === 1 ? 1 : 0.1 }}
           src={logo2}
@@ -42,8 +40,6 @@ export default connect()(function ({ dispatch }) {
         >
           {" "}
           <img
-            onMouseEnter={() => setCur(2)}
-            onMouseLeave={() => setCur(0)}
             className={styles.logo}
             style={{
               opacity: cur === 0 || cur === 2 ? 1 : 0.1,
@@ -52,8 +48,6 @@ export default connect()(function ({ dispatch }) {
             src={logo4}
           />
           <img
-            onMouseEnter={() => setCur(2)}
-            onMouseLeave={() => setCur(0)}
             className={styles.logo}
             style={{ opacity: cur === 0 ? 1 : 0.1 }}
             src={logo3}
@@ -61,8 +55,6 @@ export default connect()(function ({ dispatch }) {
         </div>
 
         <img
-          onMouseEnter={() => setCur(3)}
-          onMouseLeave={() => setCur(0)}
           className={styles.logo}
           style={{ opacity: cur === 0 || cur === 3 ? 1 : 0.1 }}
           src={logo5}
@@ -89,6 +81,8 @@ export default connect()(function ({ dispatch }) {
       <div className={styles.container1}>
         {[1, 2, 3].map((id) => (
           <div
+            onMouseEnter={() => setCur(id)}
+            onMouseLeave={() => setCur(0)}
             className={styles.area}
             style={id === cur ? {} : { backgroundColor: "#ccc" }}
           >

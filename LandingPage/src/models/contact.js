@@ -1,4 +1,5 @@
 import { routerRedux } from "dva/router";
+import config from "../config";
 export default {
   namespace: "contact",
 
@@ -25,7 +26,7 @@ export default {
       const data = yield select((state) => state);
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
-      const res = yield fetch("http://3.114.141.73:7001/contact", {
+      const res = yield fetch(`${config.host}/contact`, {
         method: "post",
         headers: headers,
         body: JSON.stringify(data.contact),

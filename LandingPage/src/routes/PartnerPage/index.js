@@ -4,7 +4,7 @@ import { routerRedux } from "dva/router";
 import { Button, Form, Input, Select } from "antd";
 import styles from "./index.less";
 import Image1 from "../../assets/h-h_Black.svg";
-
+import config from "../../config";
 const { Option } = Select;
 const validateMessages = {
   required: "${name} is required!",
@@ -22,7 +22,7 @@ export default connect()(({ dispatch }) => {
       return;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
-    const res = await fetch("http://3.114.141.73.:7001/partner", {
+    const res = await fetch(`${config.host}/partner`, {
       method: "post",
       headers: headers,
       body: JSON.stringify(values),
@@ -35,7 +35,7 @@ export default connect()(({ dispatch }) => {
     <div className={styles.main}>
       <div className={styles.row}>
         <div className={styles.text1}>
-          Do you want to be one of our partners?{" "}
+          Do you want to be one of our partners?
         </div>
       </div>
       <div className={styles.row}>

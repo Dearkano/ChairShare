@@ -62,7 +62,6 @@ const Page = ({ dispatch, back, form, loading }) => {
             >
               <Input
                 style={{ width: "20rem" }}
-                size="large"
                 allowClear
                 placeholder="Your name here"
               />
@@ -73,7 +72,6 @@ const Page = ({ dispatch, back, form, loading }) => {
             <Form.Item name={"position"} initialValue={form.position}>
               <Input
                 style={{ width: "20rem" }}
-                size="large"
                 allowClear
                 placeholder="your position here"
               />
@@ -89,7 +87,6 @@ const Page = ({ dispatch, back, form, loading }) => {
               <Input
                 style={{ width: "20rem" }}
                 type="email"
-                size="large"
                 allowClear
                 placeholder="xxxxx@xxx.com"
               />
@@ -101,7 +98,6 @@ const Page = ({ dispatch, back, form, loading }) => {
               <Input
                 style={{ width: "20rem" }}
                 type="tel"
-                size="large"
                 allowClear
                 placeholder="(xxx)xxx-xxxx"
               />
@@ -113,7 +109,7 @@ const Page = ({ dispatch, back, form, loading }) => {
           style={{
             paddingRight: "5rem",
             justifyContent: "flex-end",
-            marginTop: "5rem",
+            marginTop: "10rem",
             marginBottom: "5rem",
           }}
         >
