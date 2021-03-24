@@ -11,7 +11,8 @@
     "egg": "^2.15.1",
     "egg-cors": "^2.2.3",
     "egg-scripts": "^2.11.0",
-    "keygenerator": "^1.0.4"
+    "keygenerator": "^1.0.4",
+    "sha256": "^0.2.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",

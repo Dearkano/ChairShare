@@ -76,5 +76,22 @@ class IndexService extends Service {
     );
     return "success";
   }
+
+  async getUsers() {
+    const data = await this.app.client.scan({ TableName: "users" }).promise();
+    return data.Items;
+  }
+  async getPartners() {
+    const data = await this.app.client
+      .scan({ TableName: "partners" })
+      .promise();
+    return data.Items;
+  }
+  async getContacts() {
+    const data = await this.app.client
+      .scan({ TableName: "contacts" })
+      .promise();
+    return data.Items;
+  }
 }
 module.exports = IndexService;

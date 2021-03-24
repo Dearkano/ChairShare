@@ -66,19 +66,7 @@ export default connect()(function ({ dispatch }) {
         />
       </div>
 
-      <div
-        className={styles.row}
-        style={{
-          paddingLeft: "2rem",
-          paddingTop: "1rem",
-          fontSize: "1.3rem",
-          fontWeight: 400,
-        }}
-      >
-        Hover on the above logo to learn more
-      </div>
-
-      <div className={styles.container1}>
+      <div className={styles.container1} style={{ marginTop: "6rem" }}>
         {[1, 2, 3].map((id) => (
           <div
             onMouseEnter={() => setCur(id)}
