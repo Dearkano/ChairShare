@@ -46,7 +46,7 @@ export default connect(({ admin, loading }) => ({
                 {item.subIndustry}
               </Descriptions.Item>
               <Descriptions.Item label="Price">
-                {item.price[0] * 100} - {item.price[1] * 100}
+                {Number(item.price[0]) * 100} - {Number(item.price[1]) * 100}
               </Descriptions.Item>
               <Descriptions.Item label="Privacy Level">
                 {Math.round(item.level / 10)}
