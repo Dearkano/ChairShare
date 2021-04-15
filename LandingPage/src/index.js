@@ -2,7 +2,8 @@ import dva from "dva";
 import createLoading from "dva-loading";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-193743180-1");
 // 1. Initialize
 const app = dva();
 
