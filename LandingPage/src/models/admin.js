@@ -8,6 +8,7 @@ export default {
     contacts: [],
     partners: [],
     isLogin: false,
+    preSign: null,
   },
 
   effects: {
@@ -36,6 +37,11 @@ export default {
       });
       if (res.status === 200) yield put({ type: "changeLogin", payload: true });
     },
+    *getPreSign({}, { put }) {
+      const res = yield fetch(`${config.host}/presign`);
+      const data = yield res.json();
+      yield put({ type: "savePreSign", payload: data });
+    },
   },
 
   reducers: {
@@ -50,6 +56,9 @@ export default {
     },
     changeLogin(state, action) {
       return { ...state, isLogin: action.payload };
+    },
+    savePreSign(state, action) {
+      return { ...state, preSign: action.payload };
     },
   },
 };

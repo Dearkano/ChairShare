@@ -12,8 +12,15 @@ export default connect(({ form }) => ({ form }))(function ({
   form,
 }) {
   const checkAndNext = (v) => {
-    if (!v.city || !v.state || !v.country || !v.renter) {
-      if (!form.country || !form.state || !form.city || !form.renter) return;
+    if (!v.address || !v.city || !v.state || !v.country || !v.renter) {
+      if (
+        !form.address ||
+        !form.country ||
+        !form.state ||
+        !form.city ||
+        !form.renter
+      )
+        return;
     }
     dispatch({
       type: "form/update",
@@ -38,18 +45,27 @@ export default connect(({ form }) => ({ form }))(function ({
           style={{ justifyContent: "flex-start", marginTop: "-1rem" }}
         >
           <div className={styles.inputBlock} style={{ width: "15rem" }}>
+            <div className={styles.text5_required}>Address</div>
+            <Form.Item
+              name={"address"}
+              rules={[{ required: true }]}
+              initialValue={form.city}
+            >
+              <Input
+                style={{ width: "13rem" }}
+                allowClear
+                placeholder="Address"
+              />
+            </Form.Item>
+          </div>
+          <div className={styles.inputBlock} style={{ width: "15rem" }}>
             <div className={styles.text5_required}>City</div>
             <Form.Item
               name={"city"}
               rules={[{ required: true }]}
               initialValue={form.city}
             >
-              <Input
-                initialValue={form.city}
-                style={{ width: "13rem" }}
-                allowClear
-                placeholder="City"
-              />
+              <Input style={{ width: "13rem" }} allowClear placeholder="City" />
             </Form.Item>
           </div>
           <div className={styles.inputBlock} style={{ width: "15rem" }}>
@@ -60,7 +76,6 @@ export default connect(({ form }) => ({ form }))(function ({
               initialValue={form.state}
             >
               <Input
-                initialValue={form.state}
                 style={{ width: "13rem" }}
                 allowClear
                 placeholder="State"
@@ -75,10 +90,19 @@ export default connect(({ form }) => ({ form }))(function ({
               initialValue={form.country}
             >
               <Input
-                initialValue={form.country}
                 style={{ width: "13rem" }}
                 allowClear
                 placeholder="Country"
+              />
+            </Form.Item>
+          </div>
+          <div className={styles.inputBlock} style={{ width: "15rem" }}>
+            <div className={styles.text5}>Zip Code</div>
+            <Form.Item name={"zip"} initialValue={form.zip}>
+              <Input
+                style={{ width: "13rem" }}
+                allowClear
+                placeholder="Zip Code"
               />
             </Form.Item>
           </div>

@@ -12,6 +12,7 @@
     "egg-cors": "^2.2.3",
     "egg-scripts": "^2.11.0",
     "keygenerator": "^1.0.4",
+    "md5": "^2.3.0",
     "sha256": "^0.2.0"
   },
   "devDependencies": {

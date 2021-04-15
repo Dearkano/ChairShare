@@ -25,11 +25,11 @@ export default connect(({ form }) => ({ form }))(({ next, dispatch, form }) => {
 
       <div className={styles.text3}>You are the...?</div>
       <div className={styles.btns}>
-        <Button size="large" onClick={() => checkAndNext("subleaser")}>
-          Subleaser
+        <Button size="large" onClick={() => checkAndNext("sublessor")}>
+          Sublessor
         </Button>
-        <Button size="large" onClick={() => checkAndNext("subtenent")}>
-          Subtenent
+        <Button size="large" onClick={() => checkAndNext("subtenant")}>
+          Subtenant
         </Button>
       </div>
     </div>

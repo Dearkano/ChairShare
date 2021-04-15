@@ -1,12 +1,9 @@
-const azureConfig = require("../../config/azure");
 const keygen = require("keygenerator");
+const md5 = require("md5");
 const Service = require("egg").Service;
-const databaseId = azureConfig.database.id;
-const containerId = azureConfig.container.id;
 
 class IndexService extends Service {
   async test() {
-    console.log("----");
     this.app.client.put(
       {
         TableName: "chairshare",
@@ -22,22 +19,77 @@ class IndexService extends Service {
     );
     this.ctx.body = "success";
   }
-  async insert(data) {
-    console.log("-----");
-    data.id = keygen._();
-    this.app.client.put(
-      {
-        TableName: "users",
-        Item: data,
+  async insertOrUpdate(item) {
+    const client = this.app.client;
+    const params = {
+      TableName: "users",
+      Key: {
+        id: md5(`${item.name}-${item.email}`),
       },
-      (err, data) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(data);
+    };
+    client.get(params, function (err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        // insert
+        if (JSON.stringify(data) === "{}") {
+          console.log("insert");
+          item.id = md5(`${item.name}-${item.email}`);
+          client.put(
+            {
+              TableName: "users",
+              Item: item,
+            },
+            (err, data1) => {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log(data1);
+              }
+            }
+          );
+        }
+        // update
+        else {
+          let updateExpression = "set";
+          let ExpressionAttributeNames = {};
+          let ExpressionAttributeValues = {};
+          for (const property in item) {
+            if (!item[property]) continue;
+            updateExpression += ` #${property} = :${property} ,`;
+            ExpressionAttributeNames["#" + property] = property;
+            ExpressionAttributeValues[":" + property] = item[property];
+          }
+          updateExpression = updateExpression.substring(
+            0,
+            updateExpression.length - 1
+          );
+          console.log("=======");
+          console.log(ExpressionAttributeNames);
+          console.log(ExpressionAttributeValues);
+          client.update(
+            {
+              TableName: "users",
+              Key: {
+                id: md5(`${item.name}-${item.email}`),
+              },
+              UpdateExpression: updateExpression,
+              ExpressionAttributeNames: ExpressionAttributeNames,
+              ExpressionAttributeValues: ExpressionAttributeValues,
+              ReturnValues: "UPDATED_NEW",
+            },
+            (err, data1) => {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log(data1);
+              }
+            }
+          );
         }
       }
-    );
+    });
+
     return "success";
   }
   async insertContact(data) {

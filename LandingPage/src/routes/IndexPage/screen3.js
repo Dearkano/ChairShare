@@ -17,7 +17,7 @@ export default connect()(function ({ dispatch }) {
     "Brokers, Landlords, Enterprise, Office utilization services",
     "Companies that would like to share/rent an office space with flexibility and competitive price",
   ];
-  const roles = ["", "Sublessor", "Partners", "Subtenent"];
+  const roles = ["", "Sublessor", "Partners", "Subtenant"];
   const [cur, setCur] = useState(0);
   return (
     <div className={styles.main} style={{ height: "100vh" }}>

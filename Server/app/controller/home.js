@@ -2,6 +2,9 @@
 
 const Controller = require("egg").Controller;
 const sha256 = require("sha256");
+const aws = require("aws-sdk");
+
+const { generateUUID } = require("../utils/helper");
 
 class HomeController extends Controller {
   async index() {
@@ -12,7 +15,7 @@ class HomeController extends Controller {
   async signup() {
     const { ctx } = this;
     console.log(ctx.request.body);
-    const res = this.service.index.insert(ctx.request.body);
+    const res = this.service.index.insertOrUpdate(ctx.request.body);
     ctx.body = res;
   }
 
@@ -55,6 +58,26 @@ class HomeController extends Controller {
     } else {
       this.ctx.status = 401;
     }
+  }
+
+  async presign() {
+    const { type } = this.ctx.query;
+    const s3 = new aws.S3();
+    const S3_BUCKET = "mychairshare";
+
+    const fileName = `${generateUUID()}.${type.split("/")[1]}`; // create a unique file name
+    // const fileType = contentType; // the content-type of the file
+    const s3Params = {
+      Bucket: S3_BUCKET,
+      Fields: {
+        key: fileName,
+      },
+      Conditions: [["content-length-range", 0, 1024 * 1024 * 15]],
+      ContentType: type,
+    };
+
+    const data = s3.createPresignedPost(s3Params);
+    this.ctx.body = data;
   }
 }
 

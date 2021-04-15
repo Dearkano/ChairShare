@@ -13,4 +13,5 @@ module.exports = (app) => {
   router.get("/getPartners", controller.home.getPartners);
   router.get("/getContacts", controller.home.getContacts);
   router.post("/login", controller.home.login);
+  router.get("/presign", controller.home.presign);
 };

@@ -7,6 +7,8 @@ import SuccessPage from "./routes/SurveyPage/success";
 import ContactPage from "./routes/ContactPage";
 import PartnerPage from "./routes/PartnerPage";
 import AdminPage from "./routes/AdminPage";
+import InformationPage from "./routes/InformationPage";
+import TestPage from "./routes/InformationPage/page5";
 function RouterConfig({ history }) {
   return (
     <>
@@ -19,6 +21,8 @@ function RouterConfig({ history }) {
           <Route path="/contact" component={ContactPage} />
           <Route path="/partners" component={PartnerPage} />
           <Route path="/admin" component={AdminPage} />
+          <Route path="/information" component={InformationPage} />
+          <Route path="/test" component={TestPage} />
         </Switch>
       </Router>
     </>
