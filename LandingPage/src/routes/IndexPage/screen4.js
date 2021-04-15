@@ -8,9 +8,18 @@ import icon2 from "../../assets/icon2.svg";
 import icon3 from "../../assets/icon3.svg";
 import icon4 from "../../assets/icon4.svg";
 import icon5 from "../../assets/icon5.svg";
+import ReactGA from "react-ga";
+const ga = ReactGA.ga();
 
 export default connect()(function ({ dispatch }) {
   const onPress = () => {
+    const params = {
+      eventCategory: "Button",
+      eventAction: "Click",
+      eventLabel: "Start Sign up",
+      eventValue: 1,
+    };
+    ga("send", "event", params);
     dispatch(routerRedux.push("/signup"));
     //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
   };

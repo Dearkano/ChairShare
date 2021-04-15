@@ -11,7 +11,7 @@ export default connect()(function ({ dispatch }) {
     const params = {
       eventCategory: "Button",
       eventAction: "Click",
-      eventLabel: "Sign up",
+      eventLabel: "Start Sign up",
       eventValue: 1,
     };
     ga("send", "event", params);

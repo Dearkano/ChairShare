@@ -9,6 +9,8 @@ import logo3 from "../../assets/logo3.svg";
 import logo4 from "../../assets/logo4.svg";
 import logo5 from "../../assets/logo5.svg";
 import logo6 from "../../assets/logo6.svg";
+import ReactGA from "react-ga";
+const ga = ReactGA.ga();
 
 export default connect()(function ({ dispatch }) {
   const texts = [

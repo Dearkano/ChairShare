@@ -4,8 +4,17 @@ import { routerRedux } from "dva/router";
 import { Button } from "antd";
 import styles from "./IndexPage.less";
 import Image1 from "../../assets/h-h_Black.svg";
+import ReactGA from "react-ga";
+const ga = ReactGA.ga();
 export default connect()(function ({ dispatch }) {
   const onPress = () => {
+    const params = {
+      eventCategory: "Button",
+      eventAction: "Click",
+      eventLabel: "Start Sign up",
+      eventValue: 1,
+    };
+    ga("send", "event", params);
     dispatch(routerRedux.push("/signup"));
     //document.location.href = "https://forms.gle/hmaZnxa82Depc8dp7";
   };
