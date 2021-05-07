@@ -10,12 +10,13 @@ import { Spin } from "antd";
 export default connect(({ matching, loading }) => ({
   matching,
   loading: loading.global,
-}))(({ dispatch, matching, loading, match }) => {
+}))(({ dispatch, matching, loading, match, location }) => {
   useEffect(() => {
+    const matchingId = location.search.split("=")[1];
     dispatch({
       type: "matching/getMatching",
       payload: {
-        id: match.params.matchingId,
+        id: matchingId,
       },
     });
   }, []);

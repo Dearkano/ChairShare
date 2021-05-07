@@ -23,7 +23,7 @@ function RouterConfig({ history }) {
           <Route path="/partners" component={PartnerPage} />
           <Route path="/admin" component={AdminPage} />
           <Route path="/information" component={InformationPage} />
-          <Route path="/matching/:matchingId" component={MatchingPage} />
+          <Route path="/matching" component={MatchingPage} />
           <Route path="/test" component={TestPage} />
         </Switch>
       </Router>
