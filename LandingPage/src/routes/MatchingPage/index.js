@@ -19,7 +19,7 @@ export default connect(({ matching, loading }) => ({
       },
     });
   }, []);
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
   if (loading) {
     return <Spin size="large" />;
   }
