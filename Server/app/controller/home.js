@@ -79,6 +79,12 @@ class HomeController extends Controller {
     const data = s3.createPresignedPost(s3Params);
     this.ctx.body = data;
   }
+
+  async getMatching() {
+    const { id } = this.ctx.query;
+    const res = await this.service.index.getMatching(id);
+    this.ctx.body = res;
+  }
 }
 
 module.exports = HomeController;

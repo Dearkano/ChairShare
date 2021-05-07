@@ -14,4 +14,5 @@ module.exports = (app) => {
   router.get("/getContacts", controller.home.getContacts);
   router.post("/login", controller.home.login);
   router.get("/presign", controller.home.presign);
+  router.get("/getMatching", controller.home.getMatching);
 };

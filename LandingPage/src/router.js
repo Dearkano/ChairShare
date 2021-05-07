@@ -8,6 +8,7 @@ import ContactPage from "./routes/ContactPage";
 import PartnerPage from "./routes/PartnerPage";
 import AdminPage from "./routes/AdminPage";
 import InformationPage from "./routes/InformationPage";
+import MatchingPage from "./routes/MatchingPage";
 import TestPage from "./routes/InformationPage/page5";
 function RouterConfig({ history }) {
   return (
@@ -22,6 +23,7 @@ function RouterConfig({ history }) {
           <Route path="/partners" component={PartnerPage} />
           <Route path="/admin" component={AdminPage} />
           <Route path="/information" component={InformationPage} />
+          <Route path="/matching/:matchingId" component={MatchingPage} />
           <Route path="/test" component={TestPage} />
         </Switch>
       </Router>

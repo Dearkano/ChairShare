@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "dva";
-import { routerRedux } from "dva/router";
+import { routerRedux, withRouter } from "dva/router";
 import { Button } from "antd";
 import styles from "./IndexPage.less";
 import icon1 from "../../assets/icon1.svg";

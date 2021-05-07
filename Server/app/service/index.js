@@ -145,5 +145,15 @@ class IndexService extends Service {
       .promise();
     return data.Items;
   }
+  async getMatching(id) {
+    const params = {
+      TableName: "users",
+      Key: {
+        id: "5a103ab0d1f9c8b004c3c6c17265f16e",
+      },
+    };
+    const data = await this.app.client.get(params).promise();
+    return data;
+  }
 }
 module.exports = IndexService;

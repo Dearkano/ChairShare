@@ -19,6 +19,7 @@ app.use(createLoading());
 app.model(require("./models/form").default);
 app.model(require("./models/contact").default);
 app.model(require("./models/admin").default);
+app.model(require("./models/matching").default);
 
 // 4. Router
 app.router(require("./router").default);
